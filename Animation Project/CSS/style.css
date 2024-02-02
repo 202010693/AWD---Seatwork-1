@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    background: #002638;
+    color: #fff;
+}
+
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    background: #4973ff;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 5px #4973ff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack buttons vertically */
+    text-align: center; /* Center content horizontally */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.buttons .button {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, #7FB7BE, #6dd5ed);
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 45px;
+    margin: 0 15px;
+    font-size: 30px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.buttons .button:focus {
+    transform: scale(1);
+}
+
+.buttons .button .overlay{
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: blink 0.5s linear infinite;
+}
+
+.wave {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+}
+
+.wave::before,
+.wave::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    background: #000;
+}
+
+.wave:before {
+    border-radius: 45%;
+    background: rgba(255, 255, 255, 1);
+    animation:   animate 5s linear forwards infinite;
+}
+
+.wave:after {
+    border-radius: 40%;
+    background: rgba(255, 255, 255, .5);
+    animation:  animate 5s linear forwards infinite;
+}
+
+.fill-animation {
+    animation: fillAnimation 2s linear forwards 1;
+}
+
+.drip-animation {
+    animation: dripAnimation 2s linear forwards 1;
+}
+
+@keyframes blink{
+    0%{
+        height: 0px;
+        width: 0px;
+        opacity: 0.5;
+    }
+    100%{
+        height: 400px;
+        width: 400px;
+        opacity: 0;
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -45%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -45%) rotate(360deg);
+    }
+}
+
+@keyframes fillAnimation {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    100% {
+        transform: translate(0%, -70%);
+        animation-play-state: paused;
+    }
+}
+
+@keyframes dripAnimation {
+    0% {
+        transform: translate(0%, -70%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+        animation-play-state: paused;
+    }
+}
